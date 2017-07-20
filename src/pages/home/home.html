@@ -1,14 +1,23 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Projet cameras
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <button ion-button block (click)="takePicture()">open camera</button>
+  <button ion-button block (click)="analyzeWithTes()">analyse photo </button>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let photo of photos ; let id=index">
+        <ion-card class="block">
+          <ion-icon name="trash" class="deleteIcon" (click)="deletePhoto(id)"></ion-icon>
+          <img [src]="photo" *ngIf="photo" />
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
